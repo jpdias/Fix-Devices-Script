@@ -1,3 +1,5 @@
+#Fix Devices Powershell Script
+#Developed by jpdias
 
 Import-Module .\Modules\DeviceManagement.psd1 
 
@@ -16,6 +18,8 @@ Foreach ($i in Get-Device)
  }
 }
 
+
+## If there is still some problem, try to reinstall (experimental feature)
 Foreach ($i in Get-Device)
 {
  if($i.HasProblem){
