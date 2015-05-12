@@ -12,8 +12,9 @@ Foreach ($i in Get-Device)
 {
  if($i.HasProblem){
 	Write-Host "Problem found at $i.Name"
-	$deviceName = $i.Name; Get-Device | Where-Object -Property Name -Like $deviceName | Disable-Device
-	$deviceName = $i.Name; Get-Device | Where-Object -Property Name -Like $deviceName | Enable-Device
+	$deviceName = $i.Name; 
+	Get-Device | Where-Object -Property Name -Like $deviceName | Disable-Device
+	Get-Device | Where-Object -Property Name -Like $deviceName | Enable-Device
 	Write-Host "Fixed $deviceName"
  }
 }
@@ -24,9 +25,10 @@ Foreach ($i in Get-Device)
 {
  if($i.HasProblem){
 	Write-Host "Problem still found at $i.Name"
-	$deviceName = $i.Name; Get-Device | Where-Object -Property Name -Like $deviceName | Disable-Device
-	$deviceName = $i.Name; Get-Device | Where-Object -Property Name -Like $deviceName | Enable-Device
-	$deviceName = $i.Name; Get-Device | Where-Object -Property Name -Like $deviceName | Install-DeviceDriver
+	$deviceName = $i.Name; 
+	Get-Device | Where-Object -Property Name -Like $deviceName | Disable-Device
+	Get-Device | Where-Object -Property Name -Like $deviceName | Enable-Device
+	Get-Device | Where-Object -Property Name -Like $deviceName | Install-DeviceDriver
 	Write-Host "Fixed $i.Name"
  }
 }
